@@ -29,5 +29,9 @@ public class ListController {
     }
 
     // Update a list
-
+    @PutMapping("")
+    public HttpStatus updateList (@RequestBody List list, @PathVariable String key, @PathVariable String token, @PathVariable String idList) {
+        listService.updateList(list, key, token);
+        return HttpStatus.OK;
+    }
 }
