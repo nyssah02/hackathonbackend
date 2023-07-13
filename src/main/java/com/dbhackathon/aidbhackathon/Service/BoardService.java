@@ -10,12 +10,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class BoardService {
 
-//  @Autowired
-  private RestTemplate restTemplate;
-
-  public List<Board> getCards(String key, String token){
-    return Arrays.asList(restTemplate.getForObject(
-        "https://api.trello.com/1/boards/eDnDc9FO/cards?key=" + key + "&token=" + token,
-        Board[].class));
+  // Get Board
+  public Board getBoard(String key, String token) {
+    return new Board();
   }
 }

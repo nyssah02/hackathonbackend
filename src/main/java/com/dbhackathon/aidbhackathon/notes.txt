@@ -5,3 +5,6 @@ access your Power-Up, navigate to the API Key tab and select the option Generate
 
 API Key: 91612427ee0f74310de5ef91528701e7
 Token: ATTA110c31d5e96713397c540ff0510b2698b23c5ee16d166cd3c091e47315a048f2B4AFA9F5
+
+"idBoard":"64ae3754f1c66a66221e2f0d"
+"idList":"64ae3754f1c66a66221e2f14"

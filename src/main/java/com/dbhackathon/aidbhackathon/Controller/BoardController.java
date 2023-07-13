@@ -17,6 +17,6 @@ public class BoardController {
   // Get cards from board
   @GetMapping("api/v1/{key}/{token}/board/cards")
   public ResponseEntity<Object> getCards(@PathVariable String key, @PathVariable String token){
-    return new ResponseEntity<>(boardService.getCards(key, token), HttpStatus.ACCEPTED);
+    return new ResponseEntity<>(boardService.getBoard(key, token), HttpStatus.ACCEPTED);
   }
 }

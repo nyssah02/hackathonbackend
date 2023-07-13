@@ -3,6 +3,7 @@ package com.dbhackathon.aidbhackathon.Entity;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,25 +13,23 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Card {
   private String name;
   private String desc;
   private String idList;
-//  private String id;
-//  private String name;
-//  private String desc;
+  private String id;
 //  private long pos;
-//  private String due;
-//  private String start;
-//  private boolean dueComplete;
-//  private String idList;
+  private String due;
+  private String start;
+  private boolean dueComplete;
 //  private List<String> idMembers;
 //  private List<String> idLabels;
 //  private List<String> checkItemStates;
-//  private boolean closed;
+  private boolean closed;
 //  private Date dateLastActivity;
 //  private boolean dueReminder;
-//  private String idBoard;
+  private String idBoard;
 //  private List<String> idMembersVoted;
 //  private String idShort;
 //  private String idAttachmentCover;
