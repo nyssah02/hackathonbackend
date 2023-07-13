@@ -14,10 +14,10 @@ public class CardService {
 
   // Get a specific card
   public Card getCard(String key, String token, String idCard){
-    HttpResponse<JsonNode> response = Unirest.get("https://api.trello.com/1/cards/{id}")
+    HttpResponse<JsonNode> response = Unirest.get("https://api.trello.com/1/cards/" + idCard)
             .header("Accept", "application/json")
-            .queryString("key", "APIKey")
-            .queryString("token", "APIToken")
+            .queryString("key", key)
+            .queryString("token", token)
             .asJson();
 
     System.out.println(response.getBody());
@@ -29,7 +29,9 @@ public class CardService {
   public void createCard(Card card, String key, String token){
     HttpResponse<JsonNode> response = Unirest.post("https://api.trello.com/1/cards")
             .header("Accept", "application/json")
-            .queryString("idList", "5abbe4b7ddc1b351ef961414")
+            .queryString("idList", card.getIdList())
+            .queryString("name", card.getName())
+            .queryString("desc", card.getDesc())
             .queryString("key", key)
             .queryString("token", token)
             .asJson();
@@ -38,11 +40,25 @@ public class CardService {
 
   // Update a specific card
   public void updateCard(Card card, String key, String token, String idCard){
+    HttpResponse<JsonNode> response = Unirest.put("https://api.trello.com/1/cards/" + idCard)
+            .header("Accept", "application/json")
+            .queryString("name", card.getName())
+            .queryString("desc", card.getDesc())
+            .queryString("key", key)
+            .queryString("token", token)
+            .asJson();
 
+    System.out.println(response.getBody());
   }
 
   // Delete a specific card
   public void deleteCard(String key, String token, String idCard){
+    HttpResponse<String> response = Unirest.delete("https://api.trello.com/1/cards/" + idCard)
+            .queryString("key", key)
+            .queryString("token", token)
+            .asString();
+
+    System.out.println(response.getBody());
 
   }
 

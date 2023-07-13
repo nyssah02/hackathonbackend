@@ -25,9 +25,13 @@ public class CardController {
 
   // Get a card
   @GetMapping("api/v1/{key}/{token}/cards/{idCard}")
-  public ResponseEntity<Card> getCard
-  (@PathVariable String key, @PathVariable String token, @PathVariable String idCard){
-    return new ResponseEntity<>(cardService.getCard(key, token, idCard), HttpStatus.ACCEPTED);
+//  public ResponseEntity<Card> getCard
+//  (@PathVariable String key, @PathVariable String token, @PathVariable String idCard){
+//    return new ResponseEntity<>(cardService.getCard(key, token, idCard), HttpStatus.ACCEPTED);
+//  }
+  public HttpStatus getCard(@PathVariable String key, @PathVariable String token, @PathVariable String idCard) {
+    cardService.getCard(key, token, idCard);
+    return HttpStatus.OK;
   }
 
   // Create a card
