@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class CardService {
 
+  private final String idBoard = "64ae3754f1c66a66221e2f0d";
+
   // Get a specific card
   public Card getCard(String key, String token, String idCard) throws JsonProcessingException {
 //    HttpResponse<JsonNode> response = Unirest.get("https://api.trello.com/1/cards/" + idCard)
@@ -78,7 +80,7 @@ public class CardService {
   }
 
   // Post multiple cards in a list
-  public void postCardList(List<Card> cards, String key, String token) {
+  public void createCardList(List<Card> cards, String key, String token) {
 
   }
 }

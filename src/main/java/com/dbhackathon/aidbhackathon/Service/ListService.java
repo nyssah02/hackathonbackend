@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 public class ListService {
 
-//    private final long idBoard = 64ae3754f1c66a66221e2f0d;
+    private final String idBoard = "64ae3754f1c66a66221e2f0d";
 
     // Get list
     public List getList(String key, String idList, String token) throws IOException {
@@ -41,7 +41,7 @@ public class ListService {
     public void createList(List list, String key, String token) {
         HttpResponse<String> response = Unirest.post("https://api.trello.com/1/lists")
                 .queryString("name", list.getName())
-                .queryString("idBoard", list.getIdBoard())
+                .queryString("idBoard", idBoard)
                 .queryString("key", key)
                 .queryString("token", token)
                 .asString();
@@ -51,13 +51,15 @@ public class ListService {
 
     // Update List
     public void updateList(List list, String key, String token, String idList) {
-        HttpResponse<String> response = Unirest.put("https://api.trello.com/1/lists/" + list.getId())
+        HttpResponse<String> response = Unirest.put("https://api.trello.com/1/lists/" + idList)
                 .queryString("key", key)
                 .queryString("token", token)
-                .queryString("idList", idList)
+                .queryString("name", list.getName())
                 .asString();
 
         System.out.println(response.getBody());
     }
+
+    // Delete list
 
 }

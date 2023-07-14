@@ -14,9 +14,14 @@ public class BoardController {
   @Autowired
   private BoardService boardService;
 
+  private final String key = "91612427ee0f74310de5ef91528701e7";
+  private final String token = "ATTA110c31d5e96713397c540ff0510b2698b23c5ee16d166cd3c091e47315a048f2B4AFA9F5";
+
   // Get cards from board
-  @GetMapping("api/v1/{key}/{token}/board/cards")
-  public ResponseEntity<Object> getCards(@PathVariable String key, @PathVariable String token){
+  @GetMapping("api/v1/board/cards")
+  public ResponseEntity<Object> getCards(){
     return new ResponseEntity<>(boardService.getBoard(key, token), HttpStatus.ACCEPTED);
   }
+
+
 }
